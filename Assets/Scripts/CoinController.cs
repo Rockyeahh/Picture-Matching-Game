@@ -171,8 +171,13 @@ public class CoinController : MonoBehaviour
             print("Key 2 has been pressed");
             keyPressed = 1;
             keyDisplayText2.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 2 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
+
         }
 
         if (Input.GetButtonDown("Key3"))
@@ -180,8 +185,12 @@ public class CoinController : MonoBehaviour
             print("Key 3 has been pressed");
             keyPressed = 2;
             keyDisplayText3.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 3 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
         }
 
         if (Input.GetButtonDown("Key4"))
@@ -189,8 +198,12 @@ public class CoinController : MonoBehaviour
             print("Key 4 has been pressed");
             keyPressed = 3;
             keyDisplayText4.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 4 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
         }
 
         if (Input.GetButtonDown("Key5"))
@@ -198,8 +211,12 @@ public class CoinController : MonoBehaviour
             print("Key 5 has been pressed");
             keyPressed = 4;
             keyDisplayText5.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 5 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
         }
 
         if (Input.GetButtonDown("Key6"))
@@ -207,8 +224,12 @@ public class CoinController : MonoBehaviour
             print("Key 6 has been pressed");
             keyPressed = 5;
             keyDisplayText6.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 6 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
         }
 
         if (Input.GetButtonDown("Key7"))
@@ -216,8 +237,12 @@ public class CoinController : MonoBehaviour
             print("Key 7 has been pressed");
             keyPressed = 6;
             keyDisplayText7.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 7 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
         }
 
         if (Input.GetButtonDown("Key8"))
@@ -225,8 +250,12 @@ public class CoinController : MonoBehaviour
             print("Key 8 has been pressed");
             keyPressed = 7;
             keyDisplayText8.GetComponent<Text>().color = Color.green;
-            WrongKeyaudio();
-            print("Decrease lives by 1."); LifeCounter();
+            if (keyPressed == correctNumber) { coinAnswer = true; print("key 8 correct answer achieved!"); CorrectChoiceaudio(); Reset(); }
+            else
+            {
+                WrongKeyaudio();
+                print("Decrease lives by 1."); LifeCounter();
+            }
         }
 
         //else { keyPressed = -1; }
