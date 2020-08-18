@@ -2607,7 +2607,7 @@ GameObject:
   - component: {fileID: 1983153575}
   - component: {fileID: 1983153577}
   m_Layer: 0
-  m_Name: Coin Display
+  m_Name: Picture Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2625,7 +2625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039b8e4952573e8438d55e803b473587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins:
+  picturesArray:
   - {fileID: 1294200325}
   - {fileID: 406484774}
   - {fileID: 855956614}
@@ -2635,14 +2635,12 @@ MonoBehaviour:
   - {fileID: 1125686733}
   - {fileID: 387433864}
   loseText: {fileID: 193005595}
-  coinSelected: 0
-  correctNumber: 0
+  pictureSelected: 0
+  correctPicture: 0
   keyPressed: -1
   points: 0
-  timer: 5
   lives: 3
-  currentTimer: 0
-  coinAnswer: 0
+  pictureAnswer: 0
   scoreTextNumber: {fileID: 1893156648}
   Displaylives: {fileID: 2004963495}
   keyDisplayText1: {fileID: 1249502843}
@@ -2656,6 +2654,7 @@ MonoBehaviour:
   wrongChoice: {fileID: 8300000, guid: 227172fb747f4e9499de4bd1baf80cf1, type: 3}
   correctChoice: {fileID: 8300000, guid: 6ca2b4a73be1c1748ad92345a48a0734, type: 3}
   controlsActive: 1
+  WrongChoiceBool: 0
 --- !u!4 &1983153576
 Transform:
   m_ObjectHideFlags: 0
