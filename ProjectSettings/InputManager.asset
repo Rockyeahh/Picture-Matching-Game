@@ -297,7 +297,7 @@ InputManager:
     m_Name: Key2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 1
+    negativeButton: 2
     positiveButton: w
     altNegativeButton: '[2]'
     altPositiveButton: 

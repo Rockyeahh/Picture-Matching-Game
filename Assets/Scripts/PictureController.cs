@@ -49,6 +49,9 @@ public class PictureController : MonoBehaviour
         Reset();
 
         audioSource = GetComponent<AudioSource>();
+        pictureSelected = Random.Range(0, picturesArray.Length);
+        correctPicture = pictureSelected;
+        picturesArray[pictureSelected].SetActive(true);
     }
 
     private IEnumerator WaitAndPrint(float waitTime) // Should this be called WaitAndPrint?
