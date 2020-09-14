@@ -204,6 +204,7 @@ public class PictureController : MonoBehaviour
         audioSource.Play();
         points++;
         print("increase points " + points);
+        correctPicture = 0;     // Stops Players from pressing the correct key multiple times in order to quickly raise their score.
     }
 
     void LifeCounter()
