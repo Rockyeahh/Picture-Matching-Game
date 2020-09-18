@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Dead Scripts\CoinControls.cs" />
     <Compile Include="Assets\Scripts\Dead Scripts\Coins.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MenuSounds.cs" />
     <Compile Include="Assets\Scripts\PictureController.cs" />

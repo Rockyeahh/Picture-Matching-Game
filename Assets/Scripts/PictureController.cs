@@ -6,43 +6,57 @@ using UnityEngine.UI;
 public class PictureController : MonoBehaviour
 {
     public GameObject[] picturesArray;   // 8 pictures/objects.
-    public GameObject loseText;
+    public GameObject loseScreenUI;
 
     public int pictureSelected;   // Maybe these need to be -1 too? This shouldn't affect things.
     public int correctPicture;
     public int keyPressed = -1; // Not sure if it should stay as -1.
-    public int points = 0;
+    public int points = 0, highScore;
     public int lives = 3; // Does counting from 0 affect this?
 
-    public bool pictureAnswer = false;
-
-    public Text scoreTextNumber;
+    public Text scoreTextNumber, highScoreNumber;
     public Text Displaylives;
 
-    public Text keyDisplayText1;    // There is alot of these and thus a better way should be done during the polish stage.
-    public Text keyDisplayText2;
-    public Text keyDisplayText3;
-    public Text keyDisplayText4;
-    public Text keyDisplayText5;
-    public Text keyDisplayText6;
-    public Text keyDisplayText7;
-    public Text keyDisplayText8;
+    public Text keyDisplayText1, keyDisplayText2, keyDisplayText3, keyDisplayText4, keyDisplayText5, keyDisplayText6, keyDisplayText7, keyDisplayText8;    
+    // There is alot of these and thus a better way should be done during the polish stage.
 
     private AudioSource audioSource;
 
-    public AudioClip wrongChoice;
-    public AudioClip correctChoice;
+    public AudioClip wrongChoice, correctChoice;
 
+    public bool pictureAnswer = false;
     public bool controlsActive = true;
     public bool WrongChoiceBool = false;
 
     public IEnumerator pictureDisplayTime;      // Should this be public? // Even when public it is not viewable in the inspector.
 
+    private void Awake()
+    {
+        //DontDestroyOnLoad(this.gameObject);
+    }
+
+    // private void Awake()
+    // {
+    //    int numPictureControllers = FindObjectsOfType<PictureController>().Length;
+    //     if (numPictureControllers > 1)
+    //      {
+    //         Destroy(gameObject);
+    //      }
+    //     else
+    //      {
+    //         DontDestroyOnLoad(this.gameObject);
+    //       }
+    //    }
+
     void Start()
     {
+        loseScreenUI.SetActive(false);
+        Load(); // After loading the scores it should set the to string the high score.
+        points = 0;
         WrongChoiceBool = false;
 
         controlsActive = true;
+        lives = 3;
 
         pictureDisplayTime = WaitAndPrint(5f); // This affects the time. If I change the ait time, the length of time between the picture changes will change.
         StartCoroutine(pictureDisplayTime);
@@ -71,11 +85,19 @@ public class PictureController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (points > highScore)
+        {
+            highScore = points;
+        }
+        //print("highScore " + highScore);
+
         Displaylives.text = lives.ToString();
         if (controlsActive == true)
         {
             Controls();
             scoreTextNumber.text = points.ToString();
+            //highScoreNumber.text = highScore.ToString();
         }
     }
 
@@ -217,14 +239,28 @@ public class PictureController : MonoBehaviour
         }
     }
 
-    void Lose()
+    public void Lose()
     {
         print("Reset points");
-        points = 0;
+        //points = 0;
 
-        loseText.SetActive(true);
+        loseScreenUI.SetActive(true);
         controlsActive = false;
         // Should reset be called here?
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("points", points);
+        PlayerPrefs.SetInt("highScore", highScore);
+        print("SCORE SAVED");
+    }
+
+    void Load()
+    {
+        PlayerPrefs.GetInt("points", points);
+        PlayerPrefs.GetInt("highScore", highScore);
+        highScoreNumber.text = highScore.ToString();
     }
 
     void Reset()
@@ -241,6 +277,12 @@ public class PictureController : MonoBehaviour
         keyDisplayText6.GetComponent<Text>().color = Color.black;
         keyDisplayText7.GetComponent<Text>().color = Color.black;
         keyDisplayText8.GetComponent<Text>().color = Color.black;
+    }
+
+    public void Resetlevel()
+    {
+        Reset();
+        Start();
     }
 
 }
